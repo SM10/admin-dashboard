@@ -1,3 +1,27 @@
+
+let userName = "Stephen Man"
+let atUser = "@stephen"
+
+let userIconView = document.querySelectorAll("img.user-icon")
+
+userIconView.forEach((iconView) => {
+    iconView.src="./icons/ctee.jpg"
+    iconView.style.width = "4vh"
+    iconView.style.height = "4vh"
+})
+
+let userNameShort = document.querySelectorAll(".user-name.short")
+
+userNameShort.forEach((object)=>{
+    object.textContent = userName
+})
+
+let userNameLong = document.querySelectorAll(".user-name.full")
+
+userNameFull.forEach((object)=>{
+    object.textcontent = userName + "(" + atUser + ")"
+})
+
 let projectgrid = document.querySelector("projects-grid")
 let announcementgrid = document.querySelector("announcement-grid")
 let trendinggrid = document.querySelector("trending-grid")

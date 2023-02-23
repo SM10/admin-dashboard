@@ -6,6 +6,11 @@
     overflow:auto;
 }
 
+button{
+    border-style:none;
+    background-color: white;
+}
+
 html, body{
     margin:0;
     padding: 0;
@@ -22,18 +27,49 @@ body{
 .header{
     grid-column: 2;
     grid-row: 1;
+    padding: 2vh 5vh 2vh
 }
 
 .header > *{
-    display:flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
+    display:grid;
     height:fit-content;
 }
 
 .topbar{
-    position:sticky
+    position:sticky;
+    grid-template-columns: 1fr max-content max-content max-content;
+}
+
+.topbar > form{
+    justify-self: stretch;
+    display:grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 2vh;
+    padding-right: 15%;
+}
+
+.topbar > form > input{
+    justify-self: stretch;
+    padding: 1vh 2vh 1vh
+}
+
+.topbar * {
+    align-self: center;
+    justify-self:  center;
+}
+
+input{
+    background-color: lightgrey;
+    border-style: none;
+    border-radius:15px;
+}
+
+img[src$=".svg"]{
+    height: 2.5vh;
+    width: 2.5vh;
+    justify-self: center;
+    align-self: center;
 }
 
 .sidebar{
@@ -57,10 +93,6 @@ body{
 
 .sidebar > img {
     filter: invert(100%) sepia(0%) saturate(7458%) hue-rotate(341deg) brightness(100%) contrast(94%);
-    height: 2.5vh;
-    width: 2.5vh;
-    justify-self: center;
-    align-self: center;
 }
 
 .sidebar > h3, .sidebar > h4{
