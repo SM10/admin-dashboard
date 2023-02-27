@@ -13,21 +13,22 @@ userIconView.forEach((iconView) => {
 let userNameShort = document.querySelectorAll(".user-name.short")
 
 userNameShort.forEach((object)=>{
-    object.textContent = userName
+    object.textContent = userName 
 })
 
-let userNameLong = document.querySelectorAll(".user-name.full")
+let userNameFull = document.querySelectorAll(".user-name.full")
 
 userNameFull.forEach((object)=>{
-    object.textcontent = userName + "(" + atUser + ")"
+    object.textContent = userName  + " (" + atUser + ")"
 })
 
-let projectgrid = document.querySelector("projects-grid")
-let announcementgrid = document.querySelector("announcement-grid")
-let trendinggrid = document.querySelector("trending-grid")
+let projectgrid = document.querySelector(".projects-grid")
+let announcementgrid = document.querySelector(".announcement-grid")
+let trendinggrid = document.querySelector(".trending-grid")
 
 for(let counter = 0; counter < 6; counter++){
-    projectgrid.append(makeProjectCard("project-" + counter))
+    let card = makeProjectCard("project-" + counter)
+    projectgrid.append(card)
 }
 
 for(let counter = 0; counter < 3; counter++){
