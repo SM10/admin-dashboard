@@ -39,9 +39,18 @@ for(let counter = 0; counter < 4; counter++){
     trendinggrid.append(makeTrendingCard("trending-" + counter))
 }
 
+let projectcardtitle = document.querySelector("#project-0-title")
+projectcardtitle.textContent = "Super Cool Project"
+let projectcardcontent = document.querySelector("#project-0-content")
+projectcardcontent.textContent = "This is card 0."
+
 function makeProjectCard(idString){
     let card = document.createElement("div")
     card.className = "project-card"
+    card.style.backgroundColor = "white"
+    card.style.borderLeftColor = "gold"
+    card.style.width = "auto";
+    card.style.aspectRatio = "12/6"
     card.id = idString
 
     let title = document.createElement("div")
@@ -55,14 +64,23 @@ function makeProjectCard(idString){
     let favbutton = document.createElement("button")
     favbutton.className = "project-card-update"
     favbutton.id = idString + "-fav"
+    let favicon = document.createElement("img")
+    favicon.src="./icons/star-plus-outline.svg"
+    favbutton.append(favicon)
 
     let watchbutton = document.createElement("button")
     watchbutton.className = "project-card-watch"
     watchbutton.id = idString + "-watch"
+    let watchicon = document.createElement("img")
+    watchicon.src = "./icons/eye-plus-outline.svg"
+    watchbutton.append(watchicon)
 
     let sharebutton = document.createElement("button")
     sharebutton.className = "project-card-share"
     sharebutton.id = idString + "-share"
+    let shareicon = document.createElement("img")
+    shareicon.src = "./icons/share-variant-outline.svg"
+    sharebutton.append(shareicon)
 
     card.append(title)
     card.append(content)
