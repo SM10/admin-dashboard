@@ -32,25 +32,40 @@ for(let counter = 0; counter < 6; counter++){
 }
 
 for(let counter = 0; counter < 3; counter++){
-    announcementgrid.append(makeAnnouncementCard("announcement-" + counter))
+    let card = makeAnnouncementCard("announcement-" + counter)
+    announcementgrid.append(card)
+    if (counter != 2){
+        let cardcontent = document.querySelector("#announcement-" + counter + "-content")
+        cardcontent.style.borderBottomColor = "lightgrey"
+        cardcontent.style.borderBottomStyle = "solid"
+    }
 }
 
 for(let counter = 0; counter < 4; counter++){
     trendinggrid.append(makeTrendingCard("trending-" + counter))
 }
 
-let projectcardtitle = document.querySelector("#project-0-title")
-projectcardtitle.textContent = "Super Cool Project"
-let projectcardcontent = document.querySelector("#project-0-content")
-projectcardcontent.textContent = "This is card 0."
+addMessage("#project-0-title", "Super Cool Project", "#project-0-content", "This project is an imitation admin dashboard.")
+addMessage("#project-1-title", "Less Cool Project", "#project-1-content", "I should link these up to other projects i made.")
+addMessage("#project-2-title", "Impossible App", "#project-2-content", "My SQL Java applet could go here.")
+addMessage("#project-3-title", "Easy Peasy App", "#project-3-content", "Maybe some Python code I wrote for processing X12 files.")
+addMessage("#project-4-title", "Ad Blocker", "#project-4-content", "Don't have an ad blocker.")
+addMessage("#project-5-title", "Money Maker", "#project-5-content", "I'll put my LinkedIn profile here, because I make money through a job.")
+
+addMessage('#announcement-0-title', "Site Maintenance", "#announcement-0-content", "This is a site maintenance notification. I'm not maintaining it at all")
+addMessage('#announcement-1-title', "Community Share Day", "#announcement-1-content", "There is no community share day. The only people I'm sharing this with is future employers.")
+addMessage('#announcement-2-title', "Updated Privacy Policy", "#announcement-2-content", "You tell me things, I forget them. I don't even remember things about you, let alone share it with others.")
+
+function addMessage(titleID, titleString, contentID, contentString){
+    let projectcardtitle = document.querySelector(titleID)
+    projectcardtitle.textContent = titleString
+    let projectcardcontent = document.querySelector(contentID)
+    projectcardcontent.textContent = contentString
+}
 
 function makeProjectCard(idString){
     let card = document.createElement("div")
     card.className = "project-card"
-    card.style.backgroundColor = "white"
-    card.style.borderLeftColor = "gold"
-    card.style.width = "auto";
-    card.style.aspectRatio = "12/6"
     card.id = idString
 
     let title = document.createElement("div")
@@ -60,6 +75,9 @@ function makeProjectCard(idString){
     let content = document.createElement("div")
     content.className = "project-card-content"
     content.id = idString + "-content"
+
+    let buttons = document.createElement("div")
+    buttons.className = "project-card-buttons"
 
     let favbutton = document.createElement("button")
     favbutton.className = "project-card-update"
@@ -84,9 +102,10 @@ function makeProjectCard(idString){
 
     card.append(title)
     card.append(content)
-    card.append(favbutton)
-    card.append(watchbutton)
-    card.append(sharebutton)
+    buttons.append(favbutton)
+    buttons.append(watchbutton)
+    buttons.append(sharebutton)
+    card.append(buttons)
     return card;
 }
 
@@ -100,7 +119,7 @@ function makeAnnouncementCard(idString){
     title.id = idString +"-title"
     
     let content = document.createElement("div")
-    content.className = "announcement-card-title"
+    content.className = "announcement-card-content"
     content.id= idString + "-content"
 
     card.append(title)
