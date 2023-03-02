@@ -184,6 +184,10 @@ img[src$=".svg"]{
     gap: 3vh;
 }
 
+.content > *{
+    margin: 15px;
+}
+
 .project-card, .announcement-card, .trending-card{
     padding: 3vh;
     gap: 1vh;
@@ -202,7 +206,10 @@ img[src$=".svg"]{
     border-left-color: goldenrod;
     border-left-style:solid;
     border-left-width: 2vh;
+    margin-bottom:10px;
     box-shadow: 0px 5px 5px #a4a4a4;
+    width: 300px;
+    flex: auto;
 }
 
 .project-card-content{
@@ -219,11 +226,6 @@ img[src$=".svg"]{
     align-items: center;
     height: fit-content;
     gap: 1.5vh;
-}
-
-.announcements, .trending{
-    height: fit-content;
-    padding-bottom: 3vh;
     padding-right:1vh;
 }
 
@@ -236,6 +238,7 @@ img[src$=".svg"]{
     border-radius: 15px;
     gap : 0;
     box-shadow: 0px 5px 5px #a4a4a4;
+    margin-bottom: 10px;
 }
 
 .announcement-card{
@@ -257,10 +260,41 @@ img[src$=".svg"]{
 .trending-grid{
     border-radius: 15px;
     box-shadow: 0px 5px 5px #a4a4a4;
+    margin-bottom: 10px;
 }
 
 .trending-card{
     aspect-ratio: 12/3;
+    display:grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+img.trending-icon{
+    grid-column: 1;
+    grid-row: 1/3;
+    justify-self: center;
+    align-self: center;
+    width: auto;
+    height: auto;
+    padding: 0.5vh;
+}
+
+.trending-userat{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: left;
+    align-self:flex-end
+}
+
+.trending-desc{
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: left;
+    align-self:flex-start;
+    font-size: 0.8rem;
+    font-weight:lighter;
+    color:grey;
 }
 
 .projects{
@@ -279,9 +313,9 @@ img[src$=".svg"]{
 
 .projects-grid{
     flex: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: min-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
     align-self: stretch;
     gap: 3vh;
 }

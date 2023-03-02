@@ -56,11 +56,25 @@ addMessage('#announcement-0-title', "Site Maintenance", "#announcement-0-content
 addMessage('#announcement-1-title', "Community Share Day", "#announcement-1-content", "There is no community share day. The only people I'm sharing this with is future employers.")
 addMessage('#announcement-2-title', "Updated Privacy Policy", "#announcement-2-content", "You tell me things, I forget them. I don't even remember things about you, let alone share it with others.")
 
+addTrending("#trending-0-userat", "@tegan", "#trending-0-desc", "World Peace Builder", "#trending-0-icon", "./icons/abacus.svg")
+addTrending("#trending-1-userat", "@morgan", "#trending-1-desc", "Super Cool Project", "#trending-1-icon", "./icons/abugida-devanagari.svg")
+addTrending("#trending-2-userat", "@kendall", "#trending-2-desc", "Life Changing App", "#trending-2-icon", "./icons/account-cash.svg")
+addTrending("#trending-3-userat", "@alex", "#trending-3-desc", "No Traffic Maker", "#trending-3-icon", "./icons/advertisements.svg")
+
 function addMessage(titleID, titleString, contentID, contentString){
     let projectcardtitle = document.querySelector(titleID)
     projectcardtitle.textContent = titleString
     let projectcardcontent = document.querySelector(contentID)
     projectcardcontent.textContent = contentString
+}
+
+function addTrending(useratID, useratString, descID, descString, imgID, imgsrc){
+    let trendinguserat = document.querySelector(useratID)
+    trendinguserat.textContent = useratString
+    let trendingdesc = document.querySelector(descID)
+    trendingdesc.textContent = descString
+    let trendingimg = document.querySelector(imgID)
+    trendingimg.src = imgsrc
 }
 
 function makeProjectCard(idString){
